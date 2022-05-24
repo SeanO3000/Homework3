@@ -2,15 +2,20 @@
 
 // See https://aka.ms/new-console-template for more information
 
-ContactsContext Contacts = new ContactsContext();
-Contacts.Add(new Contact(
-Console.WriteLine(""
-Console.ReadLine()
+using (var context = new ContactsContext())
+{
 
+    var ct = new Contact()
+    {
+        ContactName = "Sean",
+        ContactEmail = "you@me.com",
+        ContactPhoneType = "Mobile",
+        ContactPhoneNumber = "123-456-7890",
+        ContactAge = 32,
+        ContactNotes = "Learning C#"
+    };
 
-
-));
-
-Console.WriteLine("Please add a contact record.");
-
+    context.Contacts.Add(ct);
+    context.SaveChanges();
+}
 
