@@ -35,8 +35,7 @@ using (var context = new ContactsContext())
     
     Console.WriteLine("Contact will be removed. Press enter to continue...");
     Console.ReadLine();
-    var con = context.Contacts.Where(c => c.ContactName == "Sean");
-    context.Contacts.RemoveRange();
+    context.Remove(context.Contacts.Single(a => a.ContactId == 1));
     context.SaveChanges();
 }
 
